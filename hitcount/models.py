@@ -7,6 +7,9 @@ class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['created']
+
     def __str__(self):
         return self.title
 
@@ -16,7 +19,7 @@ class HitCount(models.Model):
     hits = models.PositiveIntegerField(default=0)
 
     class Meta:
-        ordering = ['hits']
+        ordering = ['-hits']
 
     def __str__(self):
         return f"{self.article} - {self.hits}"
