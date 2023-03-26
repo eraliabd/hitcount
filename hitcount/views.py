@@ -24,15 +24,24 @@ def article_detail(request, pk):
     article = get_object_or_404(Article, pk=pk)
     hitcount = update_hit_count(article.pk)
 
-    return render(request, 'article_detail.html', {'article': article, 'hitcount': hitcount})
+    context = {
+        'article': article,
+    }
+
+    return render(request, 'article_detail.html', context)
 
 
 def article(request):
     articles = Article.objects.all()
 
-    return render(request, 'index.html', {"articles": articles})
+    context = {
+        'articles': articles
+    }
+
+    return render(request, 'index.html', context)
 
 
 class ArticleListView(ListView):
     model = Article
+    queryset = Article.objects.filter(created__gte='2023-03-26 06:00:00')
     template_name = 'index.html'
