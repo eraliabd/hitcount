@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article Detail</title>
+</head>
+<body>
+    <h3>{{ article.title }}</h3>
+    <p>{{ article.description }}</p><br>
+    <p>{{ article.created }} | views - <span>{{ hitcount }}</span></p><br>
+    <h3><a href="{% url 'articles' %}">Back to Articles</a></h3>
+</body>
+</html>
