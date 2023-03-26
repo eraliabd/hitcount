@@ -8,7 +8,7 @@ from django.core.cache import cache
 def update_hit_count(article_id):
     key = f'article_{article_id}_hitcount'
     hitcount = cache.get(key)
-    print("test-1: ", hitcount)
+    print("test-1: ", hitcount, "key: ", key)
     if hitcount is None:
         hitcount, created = HitCount.objects.get_or_create(article_id=article_id)
         cache.set(key, hitcount.hits)
