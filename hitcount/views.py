@@ -31,5 +31,5 @@ def article(request):
 
 
 class ArticleListView(ListView):
-    queryset = Article.objects.filter(articles__hits__lte=5)
+    queryset = Article.objects.filter(articles__hits__gte=1)
     template_name = 'index.html'
