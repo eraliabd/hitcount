@@ -8,12 +8,15 @@ from django.core.cache import cache
 def update_hit_count(article_id):
     key = f'article_{article_id}_hitcount'
     hitcount = cache.get(key)
+    print("test-1: ", hitcount)
     if hitcount is None:
         hitcount, created = HitCount.objects.get_or_create(article_id=article_id)
         cache.set(key, hitcount.hits)
+        print("test-2: ", hitcount, created)
     else:
         hitcount = HitCount.objects.filter(article_id=article_id).update(hits=F('hits') + 1)
         cache.incr(key)
+        print("test-3: ", hitcount)
     return hitcount
 
 
@@ -31,5 +34,5 @@ def article(request):
 
 
 class ArticleListView(ListView):
-    queryset = Article.objects.filter(articles__hits__gte=1)
+    model = Article
     template_name = 'index.html'
