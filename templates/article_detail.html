@@ -5,9 +5,11 @@
     <title>Article Detail</title>
 </head>
 <body>
+<div style="text-align: center">
     <h3>{{ article.title }}</h3>
-    <p>{{ article.description }}</p><br>
-    <p>{{ article.created }} | views - <span>{{ article.articles.hits }}</span></p><br>
+    <p>{{ article.description }}</p>
+    <p style="font-weight: bold">{{ article.created }} | views - <span>{{ article.articles.hits }}</span></p><br>
     <h3><a href="{% url 'articles' %}">Back to Articles</a></h3>
+</div>
 </body>
 </html>
