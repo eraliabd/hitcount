@@ -8,8 +8,8 @@
 <h1 style="text-align: center">Articles</h1><br>
 <div style="text-align: center">
     {% for article in object_list %}
-        <h3><a href="{% url 'article_detail' pk=article.pk %}">{{ article.title }}</a></h3>
-        <p>{{ article.created }} | views - {{ article.articles.hits }}</p><br>
+        <h3><a style="text-decoration: none" href="{% url 'article_detail' pk=article.pk %}">{{ article.title }}</a></h3>
+        <p style="font-weight: bold">{{ article.created }} | views - {{ article.articles.hits }}</p><br>
     {% endfor %}
 </div>
 </body>

@@ -9,7 +9,7 @@
     <h3>{{ article.title }}</h3>
     <p>{{ article.description }}</p>
     <p style="font-weight: bold">{{ article.created }} | views - <span>{{ article.articles.hits }}</span></p><br>
-    <h3><a href="{% url 'articles' %}">Back to Articles</a></h3>
+    <h3><a style="text-decoration: none" href="{% url 'articles' %}">Back to Articles</a></h3>
 </div>
 </body>
 </html>
