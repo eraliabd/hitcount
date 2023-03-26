@@ -14,7 +14,7 @@ def update_hit_count(article_id):
     else:
         hitcount = HitCount.objects.filter(article_id=article_id).update(hits=F('hits') + 1)
         cache.incr(key)
-    return hitcount.hits
+    return hitcount
 
 
 def article_detail(request, pk):
