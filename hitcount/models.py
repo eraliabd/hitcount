@@ -12,7 +12,7 @@ class Article(models.Model):
 
 
 class HitCount(models.Model):
-    article = models.OneToOneField(Article, null=True, blank=True, on_delete=models.CASCADE)
+    article = models.OneToOneField(Article, null=True, blank=True, on_delete=models.CASCADE, related_name='articles')
     hits = models.PositiveIntegerField(default=0)
 
     class Meta:

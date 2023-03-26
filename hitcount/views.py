@@ -1,5 +1,6 @@
 from django.db.models import F
 from django.shortcuts import get_object_or_404, render
+from django.views.generic import ListView
 from .models import HitCount, Article
 from django.core.cache import cache
 
@@ -25,6 +26,10 @@ def article_detail(request, pk):
 
 def article(request):
     articles = Article.objects.all()
-    hit_counts = HitCount.objects.all()
 
     return render(request, 'index.html', {"articles": articles})
+
+
+class ArticleListView(ListView):
+    queryset = Article.objects.filter(articles__hits__lte=5)
+    template_name = 'index.html'
