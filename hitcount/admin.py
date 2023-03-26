@@ -1,3 +1,10 @@
 from django.contrib import admin
+from .models import HitCount, Article
 
-# Register your models here.
+
+class HitCountAdmin(admin.ModelAdmin):
+    list_display = ('url', 'hits')
+
+
+admin.site.register(HitCount)
+admin.site.register(Article)
